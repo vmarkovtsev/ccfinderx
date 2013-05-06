@@ -18,9 +18,9 @@ common_CPPFLAGS = \
 	-DREQUIRE_RNR
 
 common_LIBADD = -licule -licutu -licuio -licuuc -liculx -licudata -licui18n \
-	-lboost_thread-mt
+	-lboost_thread -lboost_system
 
-picosel_picosel_CPPFLAGS = $(common_CPPFLAGS) -O2 -fpermissive
+picosel_picosel_CPPFLAGS = $(common_CPPFLAGS) -O2
 
 picosel_picosel_SOURCES = \
 	picosel/picosel.cpp \
@@ -37,11 +37,11 @@ ccfx_ccfx_SOURCES = \
 	ccfx/rawclonepairdata.cpp \
 	ccfx/ccfxconstants.cpp
 
-ccfx_ccfx_CPPFLAGS = $(common_CPPFLAGS) -O2 -fpermissive
+ccfx_ccfx_CPPFLAGS = $(common_CPPFLAGS) -O2
 ccfx_ccfx_LDFLAGS = $(common_LIBADD)
 
 torq_pyeasytorq_easytorq_la_CPPFLAGS = $(common_CPPFLAGS) \
-	-O2 -fpermissive $(PYTHON_INCLUDES)
+	-O2 $$(x86_64-linux-gnu-python2.7-config --cflags)
 
 torq_pyeasytorq_easytorq_la_SOURCES = \
 	torq/pyeasytorq/pyeasytorq.cpp \
@@ -56,7 +56,7 @@ torq_pyeasytorq_easytorq_la_LIBADD = $(common_LIBADD)
 torq_pyeasytorq_easytorq_la_LDFLAGS = -avoid-version -module
 
 ccfx_CCFinderXLib_lib_CCFinderXLib_la_CPPFLAGS = $(common_CPPFLAGS) \
-	-O2 -fpermissive -I/usr/lib/jvm/java-6-openjdk/include/
+	-O2 -I$$(readlink -f /usr/bin/javac | sed 's:/bin/javac::')/include
 
 ccfx_CCFinderXLib_lib_CCFinderXLib_la_SOURCES = \
 	GemX/ccfinderx_CCFinderX.h \

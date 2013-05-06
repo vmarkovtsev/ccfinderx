@@ -4,7 +4,7 @@ CLASSPATH = $(shell echo extlibs/*.jar | tr ' ' ':'):.
 
 .java.class:
 	echo $<
-	javac -classpath $(CLASSPATH) $<
+	javac -classpath $(CLASSPATH) -encoding ISO-8859-1 $<
 
 SOURCES = \
 	GemXMain.java \

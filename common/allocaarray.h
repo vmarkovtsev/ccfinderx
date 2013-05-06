@@ -147,7 +147,7 @@ public:
 	// assignment with type conversion
 	template <typename T2>
 	alloca_array<ElemType> &operator= (const alloca_array<T2> &rhs) {
-		std::copy(rhs.begin(), rhs.end(), begin());
+		std::copy(rhs.begin(), rhs.end(), this->begin());
 		return *this;
 	}
 

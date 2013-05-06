@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include "../common/hash_map_includer.h"
+#include "../ccfx/ccfxcommon.h"
 #include <algorithm>
 #include <limits>
 #include <iterator> 
@@ -1028,7 +1029,7 @@ private:
 				assert(h != 0);
 				value += h;
 			}
-			hashSeq[i] = value == 0 ? 1 : value; // 0‚Ídelimiter‚ÆŒ©‚È‚³‚ê‚é‚½‚ßAƒnƒbƒVƒ…’l‚Æ‚µ‚Ä—p‚¢‚é‚±‚Æ‚Í‚Å‚«‚È‚¢
+			hashSeq[i] = value == 0 ? 1 : value; // 0\82\CDdelimiter\82ÆŒ\A9\82È‚\B3\82\EA\82é‚½\82ßA\83n\83b\83V\83\85\92l\82Æ‚\B5\82Ä—p\82\A2\82é‚±\82Æ‚Í‚Å‚\AB\82È‚\A2
 		}
 		std::fill(hashSeq.begin() + endPos - unitLength * multiply, hashSeq.begin() + endPos, 0);
 	}
@@ -1060,7 +1061,7 @@ private:
 			//assert(std::find(range_begin, range_end, 0) == range_end);
 			for (; i < endPos - unitLength; ++i) {
 				HashValueType hashValue = hashFunc(seq, i, i + unitLength);
-				hashSeq[i] = hashValue == 0 ? 1 : hashValue; // 0‚Ídelimiter‚ÆŒ©‚È‚³‚ê‚é‚½‚ßAƒnƒbƒVƒ…’l‚Æ‚µ‚Ä—p‚¢‚é‚±‚Æ‚Í‚Å‚«‚È‚¢
+				hashSeq[i] = hashValue == 0 ? 1 : hashValue; // 0\82\CDdelimiter\82ÆŒ\A9\82È‚\B3\82\EA\82é‚½\82ßA\83n\83b\83V\83\85\92l\82Æ‚\B5\82Ä—p\82\A2\82é‚±\82Æ‚Í‚Å‚\AB\82È‚\A2
 			}
 		}
 		std::fill(hashSeq.begin() + i, hashSeq.begin() + endPos, 0);
